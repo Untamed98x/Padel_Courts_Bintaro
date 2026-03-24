@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_c7b33971d80d647e47c8165f056358aa {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_c7b33971d80d647e47c8165f056358aa" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_c7b33971d80d647e47c8165f056358aa = L.map(
+                "map_c7b33971d80d647e47c8165f056358aa",
+                {
+                    center: [-6.269513445454544, 106.73541976818183],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_fe12d75195dde7339498b6c38c7c08c6 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_fe12d75195dde7339498b6c38c7c08c6.addTo(map_c7b33971d80d647e47c8165f056358aa);
+        
+    
+            var marker_c29256eb30d716554db6579217d5d9e0 = L.marker(
+                [-6.259384, 106.7087216],
+                {
+}
+            ).addTo(map_c7b33971d80d647e47c8165f056358aa);
+        
+    
+            var icon_ee8bc51e72ca64ba5c40fbdf4ddb27db = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_602ddfbdd13d076f01e3649fee3c1b9d = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_901086146452ba548abacf5930677662 = $(`<div id="html_901086146452ba548abacf5930677662" style="width: 100.0%; height: 100.0%;">Pondok Aren<br>Gap: 0.790<br>Pop: 31,808<br>Lap: 0</div>`)[0];
+                popup_602ddfbdd13d076f01e3649fee3c1b9d.setContent(html_901086146452ba548abacf5930677662);
+            
+        
+
+        marker_c29256eb30d716554db6579217d5d9e0.bindPopup(popup_602ddfbdd13d076f01e3649fee3c1b9d)
+        ;
+
+        
+    
+    
+                marker_c29256eb30d716554db6579217d5d9e0.setIcon(icon_ee8bc51e72ca64ba5c40fbdf4ddb27db);
+            
+    
+            var marker_56ec09b1cc976c4ba9a45c340528161d = L.marker(
+                [-6.2699989, 106.6969285],
+                {
+}
+            ).addTo(map_c7b33971d80d647e47c8165f056358aa);
+        
+    
+            var icon_19c1d124185ede9862d7c60d514fe4c7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2babc9b6cfcfcdcafe759a22d703c341 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_010959a545ff766d7af9abb8e59fe563 = $(`<div id="html_010959a545ff766d7af9abb8e59fe563" style="width: 100.0%; height: 100.0%;">Perigi Lama<br>Gap: 0.729<br>Pop: 21,634<br>Lap: 0</div>`)[0];
+                popup_2babc9b6cfcfcdcafe759a22d703c341.setContent(html_010959a545ff766d7af9abb8e59fe563);
+            
+        
+
+        marker_56ec09b1cc976c4ba9a45c340528161d.bindPopup(popup_2babc9b6cfcfcdcafe759a22d703c341)
+        ;
+
+        
+    
+    
+                marker_56ec09b1cc976c4ba9a45c340528161d.setIcon(icon_19c1d124185ede9862d7c60d514fe4c7);
+            
+    
+            var marker_b2cb02647c5d8b98c0522be98762400e = L.marker(
+                [-6.255979099999999, 106.6954544],
+                {
+}
+            ).addTo(map_c7b33971d80d647e47c8165f056358aa);
+        
+    
+            var icon_ca17bc358955cf91b68186a322e8750a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ae0c99b06b7b2c63661f6f3aa3feb2e7 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_2c42c4d3719eebc68226b74d2830a8ae = $(`<div id="html_2c42c4d3719eebc68226b74d2830a8ae" style="width: 100.0%; height: 100.0%;">Pondok Kacang Timur<br>Gap: 0.706<br>Pop: 37,947<br>Lap: 1</div>`)[0];
+                popup_ae0c99b06b7b2c63661f6f3aa3feb2e7.setContent(html_2c42c4d3719eebc68226b74d2830a8ae);
+            
+        
+
+        marker_b2cb02647c5d8b98c0522be98762400e.bindPopup(popup_ae0c99b06b7b2c63661f6f3aa3feb2e7)
+        ;
+
+        
+    
+    
+                marker_b2cb02647c5d8b98c0522be98762400e.setIcon(icon_ca17bc358955cf91b68186a322e8750a);
+            
+    
+            var marker_f6f47156ef300c6468975d0777c5b6cd = L.marker(
+                [-6.2588081, 106.7264125],
+                {
+}
+            ).addTo(map_c7b33971d80d647e47c8165f056358aa);
+        
+    
+            var icon_34e74194402f6186433744279e7c4523 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_983f8d5debeda423a15ea8611aa0ddae = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_ef36ba7e55674837626ade5fab91ceeb = $(`<div id="html_ef36ba7e55674837626ade5fab91ceeb" style="width: 100.0%; height: 100.0%;">Jurangmangu Barat<br>Gap: 0.704<br>Pop: 37,582<br>Lap: 1</div>`)[0];
+                popup_983f8d5debeda423a15ea8611aa0ddae.setContent(html_ef36ba7e55674837626ade5fab91ceeb);
+            
+        
+
+        marker_f6f47156ef300c6468975d0777c5b6cd.bindPopup(popup_983f8d5debeda423a15ea8611aa0ddae)
+        ;
+
+        
+    
+    
+                marker_f6f47156ef300c6468975d0777c5b6cd.setIcon(icon_34e74194402f6186433744279e7c4523);
+            
+    
+            var marker_427e22fe0320f71bb633bcfeb02e4145 = L.marker(
+                [-6.259846599999999, 106.7337841],
+                {
+}
+            ).addTo(map_c7b33971d80d647e47c8165f056358aa);
+        
+    
+            var icon_5d7079d160e4fd89ca26f7ad90bab25a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_43b28967ada1f22da8545f18509ffd5a = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_93473c411c9305b8141c7148f4c723ad = $(`<div id="html_93473c411c9305b8141c7148f4c723ad" style="width: 100.0%; height: 100.0%;">Jurangmangu Timur<br>Gap: 0.664<br>Pop: 30,904<br>Lap: 1</div>`)[0];
+                popup_43b28967ada1f22da8545f18509ffd5a.setContent(html_93473c411c9305b8141c7148f4c723ad);
+            
+        
+
+        marker_427e22fe0320f71bb633bcfeb02e4145.bindPopup(popup_43b28967ada1f22da8545f18509ffd5a)
+        ;
+
+        
+    
+    
+                marker_427e22fe0320f71bb633bcfeb02e4145.setIcon(icon_5d7079d160e4fd89ca26f7ad90bab25a);
+            
+    
+            var marker_bec40f9f71f8a9122b387cf95a8d4775 = L.marker(
+                [-6.3001952, 106.751477],
+                {
+}
+            ).addTo(map_c7b33971d80d647e47c8165f056358aa);
+        
+    
+            var icon_291c1cde6b594cc0b42e32dc9ad47215 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_39afb144fbc38671e44570adfd784bee = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_a799d97c1d85b1900d62be81de7f2828 = $(`<div id="html_a799d97c1d85b1900d62be81de7f2828" style="width: 100.0%; height: 100.0%;">Cempaka Putih<br>Gap: 0.631<br>Pop: 25,349<br>Lap: 1</div>`)[0];
+                popup_39afb144fbc38671e44570adfd784bee.setContent(html_a799d97c1d85b1900d62be81de7f2828);
+            
+        
+
+        marker_bec40f9f71f8a9122b387cf95a8d4775.bindPopup(popup_39afb144fbc38671e44570adfd784bee)
+        ;
+
+        
+    
+    
+                marker_bec40f9f71f8a9122b387cf95a8d4775.setIcon(icon_291c1cde6b594cc0b42e32dc9ad47215);
+            
+    
+            var marker_da1a0184fef3844630f0eea87c8b08db = L.marker(
+                [-6.2425078, 106.7559004],
+                {
+}
+            ).addTo(map_c7b33971d80d647e47c8165f056358aa);
+        
+    
+            var icon_7c43e4bd3c35b26bdf3906dc231883dc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b092a53230fa9bdaea81946bca05adb8 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_db52b454bd532bd0753da3fdba547e24 = $(`<div id="html_db52b454bd532bd0753da3fdba547e24" style="width: 100.0%; height: 100.0%;">Petukangan Selatan<br>Gap: 0.624<br>Pop: 44,295<br>Lap: 2</div>`)[0];
+                popup_b092a53230fa9bdaea81946bca05adb8.setContent(html_db52b454bd532bd0753da3fdba547e24);
+            
+        
+
+        marker_da1a0184fef3844630f0eea87c8b08db.bindPopup(popup_b092a53230fa9bdaea81946bca05adb8)
+        ;
+
+        
+    
+    
+                marker_da1a0184fef3844630f0eea87c8b08db.setIcon(icon_7c43e4bd3c35b26bdf3906dc231883dc);
+            
+    
+            var marker_b07246ecd82a75562b23a0e30fa927e6 = L.marker(
+                [-6.2621154, 106.7426303],
+                {
+}
+            ).addTo(map_c7b33971d80d647e47c8165f056358aa);
+        
+    
+            var icon_7f769e19a8911656aeb47a5e478d6c91 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f7ec6df21c6c0d53eec86543422e1895 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_099f10095d7393948c4861bb782f71dd = $(`<div id="html_099f10095d7393948c4861bb782f71dd" style="width: 100.0%; height: 100.0%;">Pondok Karya<br>Gap: 0.519<br>Pop: 26,680<br>Lap: 2</div>`)[0];
+                popup_f7ec6df21c6c0d53eec86543422e1895.setContent(html_099f10095d7393948c4861bb782f71dd);
+            
+        
+
+        marker_b07246ecd82a75562b23a0e30fa927e6.bindPopup(popup_f7ec6df21c6c0d53eec86543422e1895)
+        ;
+
+        
+    
+    
+                marker_b07246ecd82a75562b23a0e30fa927e6.setIcon(icon_7f769e19a8911656aeb47a5e478d6c91);
+            
+    
+            var marker_52f910f3ed6f4902be8f0f198f940bb9 = L.marker(
+                [-6.2273641, 106.7500025],
+                {
+}
+            ).addTo(map_c7b33971d80d647e47c8165f056358aa);
+        
+    
+            var icon_bed42092b8e98058673f2511816983ca = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d8435ebf5ae67187b1a0eb256342a79c = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_ac270012458cd9e7668bed612e09de99 = $(`<div id="html_ac270012458cd9e7668bed612e09de99" style="width: 100.0%; height: 100.0%;">Petukangan Utara<br>Gap: 0.400<br>Pop: 67,106<br>Lap: 15</div>`)[0];
+                popup_d8435ebf5ae67187b1a0eb256342a79c.setContent(html_ac270012458cd9e7668bed612e09de99);
+            
+        
+
+        marker_52f910f3ed6f4902be8f0f198f940bb9.bindPopup(popup_d8435ebf5ae67187b1a0eb256342a79c)
+        ;
+
+        
+    
+    
+                marker_52f910f3ed6f4902be8f0f198f940bb9.setIcon(icon_bed42092b8e98058673f2511816983ca);
+            
+    
+            var marker_c9436ae10a87a2afcee8d8e324d349e4 = L.marker(
+                [-6.2711451, 106.7648677],
+                {
+}
+            ).addTo(map_c7b33971d80d647e47c8165f056358aa);
+        
+    
+            var icon_0fe849a6aa88af497c38b11664caac7b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_119c267e68efeb05810b114568d95e88 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_ce2d17f42d6552aebb1ff6cf9c8fcf87 = $(`<div id="html_ce2d17f42d6552aebb1ff6cf9c8fcf87" style="width: 100.0%; height: 100.0%;">Bintaro<br>Gap: 0.391<br>Pop: 65,557<br>Lap: 15</div>`)[0];
+                popup_119c267e68efeb05810b114568d95e88.setContent(html_ce2d17f42d6552aebb1ff6cf9c8fcf87);
+            
+        
+
+        marker_c9436ae10a87a2afcee8d8e324d349e4.bindPopup(popup_119c267e68efeb05810b114568d95e88)
+        ;
+
+        
+    
+    
+                marker_c9436ae10a87a2afcee8d8e324d349e4.setIcon(icon_0fe849a6aa88af497c38b11664caac7b);
+            
+    
+            var marker_c261ec64cf8ddd8ff0c92a93769c8a34 = L.marker(
+                [-6.2784983, 106.7500025],
+                {
+}
+            ).addTo(map_c7b33971d80d647e47c8165f056358aa);
+        
+    
+            var icon_800388eb335e4fe0615788bd63930d4b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e77711ca615a3606a42f4e5d7273d41a = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_142af20616b73554ae60d6d2052dde54 = $(`<div id="html_142af20616b73554ae60d6d2052dde54" style="width: 100.0%; height: 100.0%;">Rengas<br>Gap: 0.384<br>Pop: 24,079<br>Lap: 3</div>`)[0];
+                popup_e77711ca615a3606a42f4e5d7273d41a.setContent(html_142af20616b73554ae60d6d2052dde54);
+            
+        
+
+        marker_c261ec64cf8ddd8ff0c92a93769c8a34.bindPopup(popup_e77711ca615a3606a42f4e5d7273d41a)
+        ;
+
+        
+    
+    
+                marker_c261ec64cf8ddd8ff0c92a93769c8a34.setIcon(icon_800388eb335e4fe0615788bd63930d4b);
+            
+    
+            var marker_667eeeb61ac1bd4ffd25462a18e49fe7 = L.marker(
+                [-6.264480199999999, 106.748528],
+                {
+}
+            ).addTo(map_c7b33971d80d647e47c8165f056358aa);
+        
+    
+            var icon_120a00dbe6c584cb8b807af733a60ec0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_126b36f2b719a52bff6ee5000489afb2 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_7341214c660331734df84824c8ddd9a9 = $(`<div id="html_7341214c660331734df84824c8ddd9a9" style="width: 100.0%; height: 100.0%;">Pondok Betung<br>Gap: 0.319<br>Pop: 33,372<br>Lap: 4</div>`)[0];
+                popup_126b36f2b719a52bff6ee5000489afb2.setContent(html_7341214c660331734df84824c8ddd9a9);
+            
+        
+
+        marker_667eeeb61ac1bd4ffd25462a18e49fe7.bindPopup(popup_126b36f2b719a52bff6ee5000489afb2)
+        ;
+
+        
+    
+    
+                marker_667eeeb61ac1bd4ffd25462a18e49fe7.setIcon(icon_120a00dbe6c584cb8b807af733a60ec0);
+            
+    
+            var marker_05a612ec71171e2cae9d0fa757202974 = L.marker(
+                [-6.240989799999999, 106.763273],
+                {
+}
+            ).addTo(map_c7b33971d80d647e47c8165f056358aa);
+        
+    
+            var icon_cba61144dfa4c8e33e07ef434d9e6da3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0d46cc0308291d09f1be6dbe1c5f28d3 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_2f322e7dc41bc07d3133dcd78f40f60c = $(`<div id="html_2f322e7dc41bc07d3133dcd78f40f60c" style="width: 100.0%; height: 100.0%;">Ulujami<br>Gap: 0.308<br>Pop: 51,660<br>Lap: 13</div>`)[0];
+                popup_0d46cc0308291d09f1be6dbe1c5f28d3.setContent(html_2f322e7dc41bc07d3133dcd78f40f60c);
+            
+        
+
+        marker_05a612ec71171e2cae9d0fa757202974.bindPopup(popup_0d46cc0308291d09f1be6dbe1c5f28d3)
+        ;
+
+        
+    
+    
+                marker_05a612ec71171e2cae9d0fa757202974.setIcon(icon_cba61144dfa4c8e33e07ef434d9e6da3);
+            
+    
+            var marker_8a505a672ece62e5a97b46b19ddc4be0 = L.marker(
+                [-6.2885371, 106.7559004],
+                {
+}
+            ).addTo(map_c7b33971d80d647e47c8165f056358aa);
+        
+    
+            var icon_bc222fd2bece6f0a758250cc9bc391c9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e7cfe8a2ee4fb11d0ca2f66790128536 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_4929e85b7985e438e256bf49e0e872bc = $(`<div id="html_4929e85b7985e438e256bf49e0e872bc" style="width: 100.0%; height: 100.0%;">Rempoa<br>Gap: 0.294<br>Pop: 29,265<br>Lap: 4</div>`)[0];
+                popup_e7cfe8a2ee4fb11d0ca2f66790128536.setContent(html_4929e85b7985e438e256bf49e0e872bc);
+            
+        
+
+        marker_8a505a672ece62e5a97b46b19ddc4be0.bindPopup(popup_e7cfe8a2ee4fb11d0ca2f66790128536)
+        ;
+
+        
+    
+    
+                marker_8a505a672ece62e5a97b46b19ddc4be0.setIcon(icon_bc222fd2bece6f0a758250cc9bc391c9);
+            
+    
+            var marker_8c1ee6c70681f04ce8d145a5cbaba232 = L.marker(
+                [-6.319242999999999, 106.7559004],
+                {
+}
+            ).addTo(map_c7b33971d80d647e47c8165f056358aa);
+        
+    
+            var icon_3f09884681aeb5052cf4967069c122a8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_145c4b84839a8548bbbe1515c4a5c402 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_f4942cce8fe6ed5f86940c1baa4ca19a = $(`<div id="html_f4942cce8fe6ed5f86940c1baa4ca19a" style="width: 100.0%; height: 100.0%;">Pisangan<br>Gap: 0.210<br>Pop: 35,195<br>Lap: 6</div>`)[0];
+                popup_145c4b84839a8548bbbe1515c4a5c402.setContent(html_f4942cce8fe6ed5f86940c1baa4ca19a);
+            
+        
+
+        marker_8c1ee6c70681f04ce8d145a5cbaba232.bindPopup(popup_145c4b84839a8548bbbe1515c4a5c402)
+        ;
+
+        
+    
+    
+                marker_8c1ee6c70681f04ce8d145a5cbaba232.setIcon(icon_3f09884681aeb5052cf4967069c122a8);
+            
+    
+            var marker_11003d63bf4a5a8a4c02c244a797cf4c = L.marker(
+                [-6.2525412, 106.7617984],
+                {
+}
+            ).addTo(map_c7b33971d80d647e47c8165f056358aa);
+        
+    
+            var icon_37f170f0b7950607d8f201a771ac9937 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_575e9813836db9d35a9744a1f2e12b03 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_1d0435ca2a9571f7af13223be0365342 = $(`<div id="html_1d0435ca2a9571f7af13223be0365342" style="width: 100.0%; height: 100.0%;">Pesanggrahan<br>Gap: 0.205<br>Pop: 34,374<br>Lap: 9</div>`)[0];
+                popup_575e9813836db9d35a9744a1f2e12b03.setContent(html_1d0435ca2a9571f7af13223be0365342);
+            
+        
+
+        marker_11003d63bf4a5a8a4c02c244a797cf4c.bindPopup(popup_575e9813836db9d35a9744a1f2e12b03)
+        ;
+
+        
+    
+    
+                marker_11003d63bf4a5a8a4c02c244a797cf4c.setIcon(icon_37f170f0b7950607d8f201a771ac9937);
+            
+    
+            var marker_f0daa67a9ab7383932972dc4408b89c7 = L.marker(
+                [-6.284000199999999, 106.7382072],
+                {
+}
+            ).addTo(map_c7b33971d80d647e47c8165f056358aa);
+        
+    
+            var icon_75fc7acfef331d1ad1b12b073c1f57f1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4c4cf3e1f19b63e7e29cb3360426f8c5 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_77f7ca2913e07f7eead04ac87c76de94 = $(`<div id="html_77f7ca2913e07f7eead04ac87c76de94" style="width: 100.0%; height: 100.0%;">Pondok Ranji<br>Gap: 0.196<br>Pop: 32,806<br>Lap: 6</div>`)[0];
+                popup_4c4cf3e1f19b63e7e29cb3360426f8c5.setContent(html_77f7ca2913e07f7eead04ac87c76de94);
+            
+        
+
+        marker_f0daa67a9ab7383932972dc4408b89c7.bindPopup(popup_4c4cf3e1f19b63e7e29cb3360426f8c5)
+        ;
+
+        
+    
+    
+                marker_f0daa67a9ab7383932972dc4408b89c7.setIcon(icon_75fc7acfef331d1ad1b12b073c1f57f1);
+            
+    
+            var marker_e8d4b74f362fc97d29753118e57a9b62 = L.marker(
+                [-6.2806942, 106.7114267],
+                {
+}
+            ).addTo(map_c7b33971d80d647e47c8165f056358aa);
+        
+    
+            var icon_29569477d32def8b966e776fb8ad2835 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_14e0230eebf2baa2f49322d20e7f1649 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_fe9bf2ab1427da065657739995982dd4 = $(`<div id="html_fe9bf2ab1427da065657739995982dd4" style="width: 100.0%; height: 100.0%;">Pondok Pucung<br>Gap: 0.166<br>Pop: 27,794<br>Lap: 11</div>`)[0];
+                popup_14e0230eebf2baa2f49322d20e7f1649.setContent(html_fe9bf2ab1427da065657739995982dd4);
+            
+        
+
+        marker_e8d4b74f362fc97d29753118e57a9b62.bindPopup(popup_14e0230eebf2baa2f49322d20e7f1649)
+        ;
+
+        
+    
+    
+                marker_e8d4b74f362fc97d29753118e57a9b62.setIcon(icon_29569477d32def8b966e776fb8ad2835);
+            
+    
+            var marker_727d9c5c0bafb1f8bb440946c3b6b953 = L.marker(
+                [-6.313155999999999, 106.7697896],
+                {
+}
+            ).addTo(map_c7b33971d80d647e47c8165f056358aa);
+        
+    
+            var icon_87b33894ddcb5b0053a7a287f5a65302 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_db7a6335f864fb555a17d5dcf613519f = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_58cad5afe6ca937f3a9154582ad99d14 = $(`<div id="html_58cad5afe6ca937f3a9154582ad99d14" style="width: 100.0%; height: 100.0%;">Cirendeu<br>Gap: 0.152<br>Pop: 25,445<br>Lap: 18</div>`)[0];
+                popup_db7a6335f864fb555a17d5dcf613519f.setContent(html_58cad5afe6ca937f3a9154582ad99d14);
+            
+        
+
+        marker_727d9c5c0bafb1f8bb440946c3b6b953.bindPopup(popup_db7a6335f864fb555a17d5dcf613519f)
+        ;
+
+        
+    
+    
+                marker_727d9c5c0bafb1f8bb440946c3b6b953.setIcon(icon_87b33894ddcb5b0053a7a287f5a65302);
+            
+    
+            var marker_becdee2bea9cfb990f06fed8f90f3a84 = L.marker(
+                [-6.251246999999999, 106.683662],
+                {
+}
+            ).addTo(map_c7b33971d80d647e47c8165f056358aa);
+        
+    
+            var icon_f263fefee4f8c2321ade17d9e7b1f192 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_275e0dd5bf3a8a2b2058226245995e8e = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_6949e390b742e133b28be4d313aaaa28 = $(`<div id="html_6949e390b742e133b28be4d313aaaa28" style="width: 100.0%; height: 100.0%;">Pondok Kacang Barat<br>Gap: 0.145<br>Pop: 24,299<br>Lap: 11</div>`)[0];
+                popup_275e0dd5bf3a8a2b2058226245995e8e.setContent(html_6949e390b742e133b28be4d313aaaa28);
+            
+        
+
+        marker_becdee2bea9cfb990f06fed8f90f3a84.bindPopup(popup_275e0dd5bf3a8a2b2058226245995e8e)
+        ;
+
+        
+    
+    
+                marker_becdee2bea9cfb990f06fed8f90f3a84.setIcon(icon_f263fefee4f8c2321ade17d9e7b1f192);
+            
+    
+            var marker_127ff2aed7e9f60e67767b74149133b5 = L.marker(
+                [-6.2729876, 106.6925781],
+                {
+}
+            ).addTo(map_c7b33971d80d647e47c8165f056358aa);
+        
+    
+            var icon_2b13d31e856be6bdbc4e471c1ed03686 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b881623976139056a1e73e1d2e0e2abc = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_e47b807b3419bf3b4d1867e5da7af3e9 = $(`<div id="html_e47b807b3419bf3b4d1867e5da7af3e9" style="width: 100.0%; height: 100.0%;">Perigi Baru<br>Gap: 0.077<br>Pop: 12,837<br>Lap: 12</div>`)[0];
+                popup_b881623976139056a1e73e1d2e0e2abc.setContent(html_e47b807b3419bf3b4d1867e5da7af3e9);
+            
+        
+
+        marker_127ff2aed7e9f60e67767b74149133b5.bindPopup(popup_b881623976139056a1e73e1d2e0e2abc)
+        ;
+
+        
+    
+    
+                marker_127ff2aed7e9f60e67767b74149133b5.setIcon(icon_2b13d31e856be6bdbc4e471c1ed03686);
+            
+    
+            var marker_62cb928d75f4771e93f49348dea17ca7 = L.marker(
+                [-6.2755769, 106.7219896],
+                {
+}
+            ).addTo(map_c7b33971d80d647e47c8165f056358aa);
+        
+    
+            var icon_58793b6e708031f77a58af0022e8230e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e75fa7a4625a6e46d24ccad99e317d99 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_7c0e23c7ad8eb4600cd59f2678363396 = $(`<div id="html_7c0e23c7ad8eb4600cd59f2678363396" style="width: 100.0%; height: 100.0%;">Pondok Jaya<br>Gap: 0.065<br>Pop: 10,955<br>Lap: 5</div>`)[0];
+                popup_e75fa7a4625a6e46d24ccad99e317d99.setContent(html_7c0e23c7ad8eb4600cd59f2678363396);
+            
+        
+
+        marker_62cb928d75f4771e93f49348dea17ca7.bindPopup(popup_e75fa7a4625a6e46d24ccad99e317d99)
+        ;
+
+        
+    
+    
+                marker_62cb928d75f4771e93f49348dea17ca7.setIcon(icon_58793b6e708031f77a58af0022e8230e);
+            
+</script>
+</html>
