@@ -123,6 +123,13 @@ python assign_to_kelurahan.py
 | `output/rejected_places.csv` | False positive untuk review manual |
 
 ---
+## 📊 Live Interactive Map
+
+👉 **Explore the map:** "https://padel-gap-analysis.vercel.app"
+"
+![Gap Analysis Preview](padel-visual/preview.png)
+
+---
 
 ## 📌 Konteks Penting
 
