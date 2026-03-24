@@ -1,0 +1,6 @@
+*.env
+.env
+output/
+data/populasi_kelurahan.csv
+__pycache__/
+*.pyc
