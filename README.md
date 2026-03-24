@@ -125,9 +125,8 @@ python assign_to_kelurahan.py
 ---
 ## 📊 Live Interactive Map
 
-👉 **Explore the map:** "https://padel-gap-analysis.vercel.app"
+👉 **Explore the map:** "https://padel-visual.vercel.app"
 "
-![Gap Analysis Preview](padel-visual/preview.png)
 
 ---
 
