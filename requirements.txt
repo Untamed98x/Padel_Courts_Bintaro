@@ -1,0 +1,11 @@
+googlemaps
+pandas
+tqdm
+python-dotenv
+shapely
+matplotlib
+seaborn
+jupyter
+nbconvert
+google-cloud-language
+requests

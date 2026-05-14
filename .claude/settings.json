@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mv assign_to_kelurahan.py archive/bintaro/)",
+      "Bash(mv isochrone.py archive/bintaro/)",
+      "Bash(mv \"output/backup review\" archive/bintaro/output/)",
+      "Bash(mv output/coverage_analysis.csv archive/bintaro/output/)",
+      "Bash(mv output/gap_analysis.csv archive/bintaro/output/)",
+      "Bash(mv ReviewAnalyst/reviewAnalyst.ipynb archive/finance_app/)",
+      "Bash(rmdir ReviewAnalyst)",
+      "Bash(mv scripts/ReviewAnalyst.ipynb archive/finance_app/)",
+      "Bash(mv scrapper/ScrapRev_FinAPP_ID.py archive/finance_app/scrapper/)",
+      "Bash(rtk --version)",
+      "Bash(rtk grep *)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); [print\\(p.get\\('name',''\\), '-', p.get\\('description',''\\)[:60]\\) for p in d.get\\('plugins',[]\\)]\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); [print\\(p.get\\('name',''\\), '-', p.get\\('description',''\\)[:80]\\) for p in d.get\\('plugins',[]\\) if 'wolf' in p.get\\('name',''\\).lower\\(\\) or 'wolf' in p.get\\('description',''\\).lower\\(\\) or 'rtk' in p.get\\('name',''\\).lower\\(\\) or 'token' in p.get\\('name',''\\).lower\\(\\)]\")",
+      "Bash(python3 -m json.tool)",
+      "Bash(rtk gain *)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 -m jupyter nbconvert --to notebook --execute --inplace scripts/StrategicAnalysis_PondokLabu.ipynb)",
+      "Bash(/Users/muhammadfauzy/anaconda3/envs/python_fauzy/bin/jupyter nbconvert *)",
+      "Bash(/Users/muhammadfauzy/anaconda3/envs/python_fauzy/bin/python -c ' *)"
+    ]
+  }
+}

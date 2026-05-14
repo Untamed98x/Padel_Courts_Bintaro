@@ -4,3 +4,6 @@ output/
 data/populasi_kelurahan.csv
 __pycache__/
 *.pyc
+.DS_Store
+API-Json/
+.ipynb_checkpoints/

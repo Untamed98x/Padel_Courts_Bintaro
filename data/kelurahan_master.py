@@ -1,5 +1,5 @@
 # kelurahan_master.py
-# Master list 27 kelurahan scope Bintaro Jaya
+# Master list kelurahan — Bintaro Jaya & Pondok Labu area
 # Primary key untuk semua dataset project ini
 
 KELURAHAN_BINTARO = [
@@ -32,10 +32,43 @@ KELURAHAN_BINTARO = [
     {"kelurahan": "Petukangan Selatan",  "kecamatan": "Pesanggrahan",  "kota": "Jakarta Selatan",   "provinsi": "DKI Jakarta"},
 ]
 
+
+# ─── Scope Pondok Labu (Cilandak / Cinere / Jagakarsa) ───────────────────────
+KELURAHAN_PONDOK_LABU = [
+    # ─── Kecamatan Cilandak (Jakarta Selatan) ─────────────────────────────
+    {"kelurahan": "Pondok Labu",        "kecamatan": "Cilandak",      "kota": "Jakarta Selatan", "provinsi": "DKI Jakarta"},
+    {"kelurahan": "Cilandak Barat",     "kecamatan": "Cilandak",      "kota": "Jakarta Selatan", "provinsi": "DKI Jakarta"},
+    {"kelurahan": "Lebak Bulus",        "kecamatan": "Cilandak",      "kota": "Jakarta Selatan", "provinsi": "DKI Jakarta"},
+    {"kelurahan": "Gandaria Selatan",   "kecamatan": "Cilandak",      "kota": "Jakarta Selatan", "provinsi": "DKI Jakarta"},
+    {"kelurahan": "Cipete Selatan",     "kecamatan": "Cilandak",      "kota": "Jakarta Selatan", "provinsi": "DKI Jakarta"},
+
+    # ─── Kecamatan Jagakarsa (Jakarta Selatan) ────────────────────────────
+    {"kelurahan": "Jagakarsa",          "kecamatan": "Jagakarsa",     "kota": "Jakarta Selatan", "provinsi": "DKI Jakarta"},
+    {"kelurahan": "Cipedak",            "kecamatan": "Jagakarsa",     "kota": "Jakarta Selatan", "provinsi": "DKI Jakarta"},
+    {"kelurahan": "Srengseng Sawah",    "kecamatan": "Jagakarsa",     "kota": "Jakarta Selatan", "provinsi": "DKI Jakarta"},
+    {"kelurahan": "Ciganjur",           "kecamatan": "Jagakarsa",     "kota": "Jakarta Selatan", "provinsi": "DKI Jakarta"},
+    {"kelurahan": "Lenteng Agung",      "kecamatan": "Jagakarsa",     "kota": "Jakarta Selatan", "provinsi": "DKI Jakarta"},
+    {"kelurahan": "Tanjung Barat",      "kecamatan": "Jagakarsa",     "kota": "Jakarta Selatan", "provinsi": "DKI Jakarta"},
+
+    # ─── Kecamatan Pasar Minggu (Jakarta Selatan) ─────────────────────────
+    {"kelurahan": "Kebagusan",          "kecamatan": "Pasar Minggu",  "kota": "Jakarta Selatan", "provinsi": "DKI Jakarta"},
+    {"kelurahan": "Ragunan",            "kecamatan": "Pasar Minggu",  "kota": "Jakarta Selatan", "provinsi": "DKI Jakarta"},
+    {"kelurahan": "Cilandak Timur",     "kecamatan": "Pasar Minggu",  "kota": "Jakarta Selatan", "provinsi": "DKI Jakarta"},
+
+    # ─── Kecamatan Cinere (Depok) ─────────────────────────────────────────
+    {"kelurahan": "Cinere",             "kecamatan": "Cinere",        "kota": "Depok",           "provinsi": "Jawa Barat"},
+    {"kelurahan": "Gandul",             "kecamatan": "Cinere",        "kota": "Depok",           "provinsi": "Jawa Barat"},
+    {"kelurahan": "Pangkalan Jati",     "kecamatan": "Cinere",        "kota": "Depok",           "provinsi": "Jawa Barat"},
+    {"kelurahan": "Pangkalan Jati Baru","kecamatan": "Cinere",        "kota": "Depok",           "provinsi": "Jawa Barat"},
+]
+
+
 # Search queries untuk tiap kelurahan — dipakai pas scraping Google Maps
-def get_search_queries():
+def get_search_queries(kelurahan_list=None):
+    if kelurahan_list is None:
+        kelurahan_list = KELURAHAN_BINTARO
     queries = []
-    for k in KELURAHAN_BINTARO:
+    for k in kelurahan_list:
         kel = k["kelurahan"]
         kec = k["kecamatan"]
         queries.append({
@@ -45,13 +78,20 @@ def get_search_queries():
         })
     return queries
 
+
 if __name__ == "__main__":
     import json
-    queries = get_search_queries()
+    print("=== BINTARO JAYA ===")
+    queries_b = get_search_queries(KELURAHAN_BINTARO)
     print(f"Total kelurahan: {len(KELURAHAN_BINTARO)}")
-    print(f"Total queries  : {len(queries)}")
+    print(f"Total queries  : {len(queries_b)}")
+
+    print("\n=== PONDOK LABU AREA ===")
+    queries_p = get_search_queries(KELURAHAN_PONDOK_LABU)
+    print(f"Total kelurahan: {len(KELURAHAN_PONDOK_LABU)}")
+    print(f"Total queries  : {len(queries_p)}")
     print("\nContoh query:")
-    for q in queries[:3]:
+    for q in queries_p[:3]:
         print(f"  - {q['query']}")
     print("\nFull list:")
-    print(json.dumps(KELURAHAN_BINTARO, indent=2, ensure_ascii=False))
+    print(json.dumps(KELURAHAN_PONDOK_LABU, indent=2, ensure_ascii=False))
