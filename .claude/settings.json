@@ -19,7 +19,29 @@
       "Bash(python3 -c ' *)",
       "Bash(python3 -m jupyter nbconvert --to notebook --execute --inplace scripts/StrategicAnalysis_PondokLabu.ipynb)",
       "Bash(/Users/muhammadfauzy/anaconda3/envs/python_fauzy/bin/jupyter nbconvert *)",
-      "Bash(/Users/muhammadfauzy/anaconda3/envs/python_fauzy/bin/python -c ' *)"
+      "Bash(/Users/muhammadfauzy/anaconda3/envs/python_fauzy/bin/python -c ' *)",
+      "Bash(git reset *)",
+      "Bash(/Users/muhammadfauzy/anaconda3/envs/python_fauzy/bin/jupyter kernelspec *)",
+      "Bash(jupyter nbconvert *)",
+      "Bash(python3 -m jupyter --version)",
+      "Bash(rtk read *)",
+      "Bash(rtk ls *)",
+      "Bash(.venv/bin/pip list *)",
+      "Bash(.venv/bin/python --version)",
+      "Bash(.venv/bin/pip install *)",
+      "Bash(.venv/bin/jupyter nbconvert *)",
+      "Bash(xxd \"/Users/muhammadfauzy/Documents/2.Data_Analyst/Padel Courts Analysis/Sense Padel/output/padel_pondoklabu_density.csv\")",
+      "Bash(brctl download *)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(xattr -w 'com.apple.fileprovider.ignore#P' 1 '/Users/muhammadfauzy/Documents/2.Data_Analyst/Padel Courts Analysis/Sense Padel/output/padel_pondoklabu_density.csv')",
+      "Bash(/usr/bin/open -R '/Users/muhammadfauzy/Documents/2.Data_Analyst/Padel Courts Analysis/Sense Padel/output/padel_pondoklabu_density.csv')",
+      "Bash(brctl status *)",
+      "Bash(xxd '/Users/muhammadfauzy/Documents/2.Data_Analyst/Padel Courts Analysis/Sense Padel/output/reviews_pondoklabu.csv')",
+      "Bash(swift -e ' *)",
+      "Bash(brctl evict *)",
+      "Bash(python3 -c \"import sys; print\\(sys.version\\)\")",
+      "Bash(/Users/muhammadfauzy/anaconda3/envs/python_fauzy/bin/python --version)",
+      "Bash(/Users/muhammadfauzy/anaconda3/envs/python_fauzy/bin/pip install *)"
     ]
   }
 }
