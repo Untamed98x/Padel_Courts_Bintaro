@@ -1,246 +1,226 @@
 """
-Convert EXECUTIVE_SUMMARY.md → styled HTML → PDF via Chrome headless
+generate_pdf.py
+Convert ExecutiveSummary_PondokLabu.md → styled PDF with active hyperlinks.
+Uses playwright (headless Chromium) — links remain clickable in the output PDF.
+
+Usage:
+    cd <project-root>
+    python scripts/generate_pdf.py
+
+Output:
+    output/ExecutiveSummary_PondokLabu.pdf
 """
-import base64
-import os
+
 import re
-import subprocess
-import sys
-import tempfile
+from pathlib import Path
 import markdown
+from playwright.sync_api import sync_playwright
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MD_FILE  = os.path.join(BASE_DIR, 'EXECUTIVE_SUMMARY.md')
-OUT_PDF  = os.path.join(BASE_DIR, 'Executive_Summary_SurfingWhale.pdf')
-CHROME   = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+ROOT     = Path(__file__).resolve().parents[1]
+MD_FILE  = ROOT / 'ExecutiveSummary_PondokLabu.md'
+OUT_PDF  = ROOT / 'output' / 'ExecutiveSummary_PondokLabu.pdf'
+TMP_HTML = ROOT / 'output' / '_summary_print.html'
 
-def embed_images(md_text):
-    """Replace ![alt](src/file.png) with base64 data URIs."""
-    def replace(m):
-        alt  = m.group(1)
-        path = m.group(2)
-        # decode percent-encoded spaces
-        path_decoded = path.replace('%20', ' ').replace('%26', '&')
-        full = os.path.join(BASE_DIR, path_decoded)
-        if not os.path.exists(full):
-            return m.group(0)
-        with open(full, 'rb') as f:
-            data = base64.b64encode(f.read()).decode()
-        return f'![{alt}](data:image/png;base64,{data})'
-    return re.sub(r'!\[([^\]]*)\]\(([^)]+)\)', replace, md_text)
+VERCEL_URL = 'https://sense-padel-pondoklabu.vercel.app'
 
-def md_to_html(md_text):
-    body = markdown.markdown(
-        md_text,
-        extensions=['tables', 'fenced_code', 'nl2br', 'sane_lists']
-    )
-    return f"""<!DOCTYPE html>
+# ── 1. Markdown → HTML body ──────────────────────────────────────────────────
+md_text = MD_FILE.read_text(encoding='utf-8')
+body_html = markdown.markdown(
+    md_text,
+    extensions=['tables', 'fenced_code', 'toc', 'nl2br'],
+)
+
+# Resolve relative image paths to absolute file:// URIs so Chromium can load them
+def rewrite_img(m):
+    src = m.group(1)
+    if src.startswith('http') or src.startswith('data:'):
+        return m.group(0)
+    abs_path = (ROOT / src).resolve()
+    return f'<img src="{abs_path.as_uri()}"'
+
+body_html = re.sub(r'<img src="([^"]+)"', rewrite_img, body_html)
+
+# ── 2. Wrap in print-ready HTML ───────────────────────────────────────────────
+full_html = f"""<!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sense Padel Pondok Labu — Strategic Snapshot</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {{ box-sizing: border-box; }}
 
-  * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    body {{
+      font-family: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.68;
+      color: #1a1a2e;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 28px 36px 48px;
+    }}
 
-  body {{
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 10.5pt;
-    line-height: 1.65;
-    color: #1a1a2e;
-    background: #fff;
-    padding: 0;
-  }}
+    h1 {{
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22pt; font-weight: 700;
+      color: #1a1a2e; margin: 0 0 4px;
+      line-height: 1.15;
+    }}
+    h2 {{
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13pt; font-weight: 700;
+      color: #1a1a2e;
+      border-bottom: 2px solid #1565C0;
+      padding-bottom: 4px;
+      margin: 28px 0 12px;
+      page-break-after: avoid;
+    }}
+    h3 {{
+      font-size: 10.5pt; font-weight: 700;
+      color: #1565C0;
+      margin: 18px 0 7px;
+      page-break-after: avoid;
+    }}
 
-  /* Cover strip */
-  .cover {{
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
-    color: white;
-    padding: 48px 56px 40px;
-    margin-bottom: 36px;
-  }}
-  .cover h1 {{
-    font-size: 26pt;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    margin-bottom: 6px;
-    color: #fff;
-    border: none;
-  }}
-  .cover h2 {{
-    font-size: 13pt;
-    font-weight: 400;
-    color: #a8c6fa;
-    margin-bottom: 20px;
-    border: none;
-    padding: 0;
-  }}
-  .cover p {{
-    font-size: 9.5pt;
-    color: #c8d8f0;
-    line-height: 1.8;
-    margin: 0;
-  }}
-  .cover strong {{ color: #fff; }}
+    p {{ margin: 0 0 9px; }}
 
-  /* Main content wrapper */
-  .content {{
-    padding: 0 56px 56px;
-  }}
+    blockquote {{
+      border-left: 3px solid #1565C0;
+      margin: 12px 0;
+      padding: 8px 14px;
+      background: #f0f8ff;
+      border-radius: 0 6px 6px 0;
+      color: #333;
+      font-size: 10pt;
+    }}
 
-  h1 {{ display: none; }}  /* hidden — shown in cover */
-  h2 {{
-    font-size: 14pt;
-    font-weight: 700;
-    color: #0f3460;
-    border-bottom: 2px solid #0f3460;
-    padding-bottom: 5px;
-    margin: 32px 0 14px;
-  }}
-  h3 {{
-    font-size: 11pt;
-    font-weight: 600;
-    color: #16213e;
-    margin: 22px 0 8px;
-  }}
+    /* Tables */
+    table {{
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 9.5pt;
+      page-break-inside: avoid;
+    }}
+    th {{
+      background: #1a1a2e;
+      color: white;
+      padding: 7px 10px;
+      text-align: left;
+      font-weight: 600;
+    }}
+    td {{
+      padding: 6px 10px;
+      border-bottom: 1px solid #e8e8e8;
+    }}
+    tr:nth-child(even) td {{ background: #f7f9ff; }}
 
-  p {{ margin: 8px 0; }}
+    /* Images */
+    img {{
+      width: 100%; max-width: 100%;
+      border-radius: 8px;
+      margin: 12px 0;
+      page-break-inside: avoid;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+    }}
 
-  ul, ol {{
-    padding-left: 20px;
-    margin: 8px 0 12px;
-  }}
-  li {{ margin-bottom: 4px; }}
+    /* Links — keep visible and clickable */
+    a {{
+      color: #1565C0;
+      text-decoration: underline;
+    }}
 
-  blockquote {{
-    border-left: 4px solid #0f3460;
-    background: #eef4ff;
-    padding: 10px 16px;
-    margin: 14px 0;
-    border-radius: 0 6px 6px 0;
-    font-style: italic;
-    color: #16213e;
-  }}
+    code {{
+      background: #f4f4f4;
+      padding: 1px 5px; border-radius: 3px;
+      font-size: 9pt;
+      font-family: 'Courier New', monospace;
+    }}
 
-  table {{
-    border-collapse: collapse;
-    width: 100%;
-    margin: 14px 0;
-    font-size: 9.5pt;
-  }}
-  th {{
-    background: #0f3460;
-    color: #fff;
-    padding: 8px 12px;
-    text-align: left;
-    font-weight: 600;
-  }}
-  td {{
-    padding: 7px 12px;
-    border-bottom: 1px solid #e2e8f0;
-  }}
-  tr:nth-child(even) td {{ background: #f7faff; }}
+    ul, ol {{ margin: 5px 0 10px 20px; padding: 0; }}
+    li {{ margin-bottom: 3px; }}
 
-  img {{
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 16px auto;
-    border-radius: 6px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
-  }}
+    hr {{
+      border: none;
+      border-top: 1px solid #e0e0e0;
+      margin: 20px 0;
+    }}
 
-  code {{
-    background: #f0f4f8;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-family: 'SF Mono', 'Fira Code', monospace;
-    font-size: 9pt;
-  }}
+    /* Vercel callout at bottom */
+    .vercel-callout {{
+      background: #1a1a2e;
+      color: white;
+      border-radius: 8px;
+      padding: 11px 16px;
+      margin: 28px 0 0;
+      font-size: 10pt;
+      display: flex; align-items: center; gap: 10px;
+      page-break-inside: avoid;
+    }}
+    .vercel-callout a {{
+      color: #69f0ae;
+      font-weight: 700;
+      text-decoration: none;
+    }}
 
-  strong {{ font-weight: 600; }}
-
-  hr {{
-    border: none;
-    border-top: 1px solid #e2e8f0;
-    margin: 28px 0;
-  }}
-
-  .footer {{
-    margin-top: 40px;
-    padding-top: 14px;
-    border-top: 1px solid #e2e8f0;
-    font-size: 8.5pt;
-    color: #888;
-    text-align: center;
-  }}
-
-  @media print {{
-    body {{ print-color-adjust: exact; -webkit-print-color-adjust: exact; }}
-    .cover {{ -webkit-print-color-adjust: exact; }}
-    h2 {{ page-break-before: auto; }}
-    img {{ page-break-inside: avoid; }}
-    table {{ page-break-inside: avoid; }}
-  }}
-</style>
+    /* Print settings */
+    @media print {{
+      body {{ padding: 0; font-size: 10pt; }}
+      a {{ color: #1565C0 !important; text-decoration: underline !important; }}
+      th {{ -webkit-print-color-adjust: exact; print-color-adjust: exact; }}
+      tr:nth-child(even) td {{ -webkit-print-color-adjust: exact; print-color-adjust: exact; }}
+      .vercel-callout {{ -webkit-print-color-adjust: exact; print-color-adjust: exact; }}
+    }}
+  </style>
 </head>
 <body>
-<div class="cover">
-  <h1>Executive Summary</h1>
-  <h2>Riset Pasar Aplikasi Finance — Validasi Segmen Pengguna</h2>
-  <p>
-    <strong>Prepared for:</strong> Surfing Whale Finance &nbsp;|&nbsp;
-    <strong>Periode data:</strong> Maret–April 2026<br>
-    <strong>Market:</strong> Indonesia (ID) &amp; United States (US) &nbsp;|&nbsp;
-    <strong>Total review:</strong> 1.050 (600 ID + 450 US)
-  </p>
+
+{body_html}
+
+<div class="vercel-callout">
+  🗺️&nbsp;
+  <span>
+    Peta interaktif (mobile-friendly):
+    <a href="{VERCEL_URL}" target="_blank">{VERCEL_URL}</a>
+  </span>
 </div>
-<div class="content">
-{body}
-<div class="footer">Surfing Whale Finance — Internal Research Document · April 2026</div>
-</div>
+
 </body>
 </html>"""
 
-def main():
-    with open(MD_FILE, encoding='utf-8') as f:
-        raw = f.read()
+TMP_HTML.write_text(full_html, encoding='utf-8')
+print(f'HTML rendered → {TMP_HTML}')
 
-    # strip first two heading lines (shown in cover div already)
-    lines = raw.split('\n')
-    clean = '\n'.join(l for l in lines if not l.startswith('# ') and not (l.startswith('## ') and 'Riset Pasar' in l))
+# ── 3. Playwright: HTML → PDF ─────────────────────────────────────────────────
+with sync_playwright() as p:
+    browser = p.chromium.launch()
+    page    = browser.new_page()
+    page.goto(TMP_HTML.as_uri())
+    page.wait_for_load_state('networkidle')
+    page.wait_for_timeout(2000)   # let fonts + images settle
 
-    print('Embedding images...')
-    embedded = embed_images(clean)
+    page.pdf(
+        path=str(OUT_PDF),
+        format='A4',
+        margin={'top': '18mm', 'bottom': '22mm', 'left': '14mm', 'right': '14mm'},
+        print_background=True,
+        display_header_footer=True,
+        header_template='<div></div>',
+        footer_template=(
+            '<div style="font-size:8px;color:#aaa;width:100%;text-align:center;'
+            'font-family:Helvetica,Arial,sans-serif;padding:0 20px">'
+            'Sense Padel Pondok Labu — Strategic Snapshot · Mei 2026 &nbsp;·&nbsp; '
+            f'<a href="{VERCEL_URL}" style="color:#1565C0">{VERCEL_URL}</a>'
+            ' &nbsp;|&nbsp; '
+            '<span class="pageNumber"></span>&thinsp;/&thinsp;<span class="totalPages"></span>'
+            '</div>'
+        ),
+    )
+    browser.close()
 
-    print('Converting markdown → HTML...')
-    html = md_to_html(embedded)
+TMP_HTML.unlink(missing_ok=True)
 
-    with tempfile.NamedTemporaryFile(suffix='.html', delete=False, mode='w', encoding='utf-8') as tf:
-        tf.write(html)
-        tmp_html = tf.name
-
-    print(f'Launching Chrome headless → {OUT_PDF}')
-    result = subprocess.run([
-        CHROME,
-        '--headless=new',
-        '--disable-gpu',
-        '--no-sandbox',
-        '--disable-dev-shm-usage',
-        f'--print-to-pdf={OUT_PDF}',
-        '--print-to-pdf-no-header',
-        '--no-pdf-header-footer',
-        f'file://{tmp_html}'
-    ], capture_output=True, text=True, timeout=60)
-
-    os.unlink(tmp_html)
-
-    if result.returncode != 0:
-        print('Chrome stderr:', result.stderr[:500])
-        sys.exit(1)
-
-    size_kb = os.path.getsize(OUT_PDF) / 1024
-    print(f'Done → {OUT_PDF} ({size_kb:.0f} KB)')
-
-if __name__ == '__main__':
-    main()
+size_kb = OUT_PDF.stat().st_size // 1024
+print(f'PDF saved → {OUT_PDF}  ({size_kb} KB)')
+print(f'Active link: {VERCEL_URL}')

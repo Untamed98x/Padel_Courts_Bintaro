@@ -11,7 +11,7 @@
 
 *Zona merah = coverage area Sense Padel Margasatwa. Biru = kompetitor. Heatmap = kepadatan lapangan.*
 
-> [Buka peta interaktif →](output/isochrone_map_pondoklabu.html)
+> [Buka peta interaktif (web) →](https://sense-padel-pondoklabu.vercel.app) · [Local →](output/isochrone_map_pondoklabu.html)
 
 ---
 
@@ -134,3 +134,7 @@ Angka-angka di atas bisa jadi titik awal diskusi — bukan peta jalan yang sudah
 *Data: Google Maps scraping, 142 courts, 41 reviews dari 9 courts terdekat. Periode: Mei 2026.*
 *Metode: review classification NLP, haversine distance, community moat scoring berbasis dimensi sosial/engagement/liga/niche.*
 *Limitasi: sample size kecil, survivorship bias pada review, tidak ada data operasional, tidak ada customer interview.*
+
+---
+
+**Peta interaktif (mobile-friendly):** <https://sense-padel-pondoklabu.vercel.app>
