@@ -25,20 +25,27 @@ VERCEL_URL = 'https://sense-padel-pondoklabu.vercel.app'
 
 # ── 1. Markdown → HTML body ──────────────────────────────────────────────────
 md_text = MD_FILE.read_text(encoding='utf-8')
+
+# Strip the plain-text Vercel footer line — the styled callout div replaces it
+md_text = re.sub(
+    r'\n\*\*Peta interaktif[^\n]+\n?$', '', md_text, flags=re.MULTILINE
+)
+
 body_html = markdown.markdown(
     md_text,
     extensions=['tables', 'fenced_code', 'toc', 'nl2br'],
 )
 
-# Resolve relative image paths to absolute file:// URIs so Chromium can load them
-def rewrite_img(m):
+# Resolve relative image src to absolute file:// URIs.
+# markdown outputs: <img alt="..." src="output/...">  (src not first attribute)
+def rewrite_src(m):
     src = m.group(1)
-    if src.startswith('http') or src.startswith('data:'):
-        return m.group(0)
+    if src.startswith('http') or src.startswith('data:') or src.startswith('file:'):
+        return f'src="{src}"'
     abs_path = (ROOT / src).resolve()
-    return f'<img src="{abs_path.as_uri()}"'
+    return f'src="{abs_path.as_uri()}"'
 
-body_html = re.sub(r'<img src="([^"]+)"', rewrite_img, body_html)
+body_html = re.sub(r'src="([^"]+)"', rewrite_src, body_html)
 
 # ── 2. Wrap in print-ready HTML ───────────────────────────────────────────────
 full_html = f"""<!DOCTYPE html>
@@ -179,7 +186,6 @@ full_html = f"""<!DOCTYPE html>
 {body_html}
 
 <div class="vercel-callout">
-  🗺️&nbsp;
   <span>
     Peta interaktif (mobile-friendly):
     <a href="{VERCEL_URL}" target="_blank">{VERCEL_URL}</a>
