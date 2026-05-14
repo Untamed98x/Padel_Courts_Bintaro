@@ -143,4 +143,4 @@ Pemerintah DKI Jakarta baru mengeluarkan regulasi pelarangan pembangunan lapanga
 
 ---
 
-*Project ini dibuat untuk keperluan analisis investasi lapangan padel di kawasan Bintaro Jaya.*
+*Project ini dibuat untuk keperluan analisis investasi lapangan padel di kawasan Bintaro Jaya.*# SensePadel-Pondok-Labu
