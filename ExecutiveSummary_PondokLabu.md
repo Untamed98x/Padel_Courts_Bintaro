@@ -1,25 +1,35 @@
-# Executive Summary — Sense Padel Pondok Labu (Margasatwa)
+# Sense Padel Pondok Labu — Strategic Snapshot
 
-> **Pertanyaan owner:** *"Gimana supaya Sense Padel nggak kena hype decay tapi punya community moat?"*
-
----
-
-## 1. Kondisi Pasar: Sangat Padat 🔴
-
-![Isochrone Density Analysis](output/isochrone_density_pondoklabu.png)
-
-| Radius | Jumlah Kompetitor |
-|--------|-------------------|
-| ≤ 3 km (≈10 mnt berkendara) | **41 court** |
-| ≤ 5 km (≈15 mnt berkendara) | **86 court** |
-| ≤ 10 km (≈20 mnt berkendara) | **140 court** |
-
-**Verdict: MERAH — Sangat Padat.**
-Dengan 41 kompetitor dalam radius 10 menit, margin akan tertekan saat hype padel melandai. Niche bukan pilihan — ini keharusan.
+> **Konteks:** Analisis ini gw buat dari data publik Google Maps (142 courts, 41 reviews dari 9 courts).
+> Bukan riset pasar yang lengkap — anggap ini *peta awal* buat mulai diskusi, bukan kesimpulan final.
 
 ---
 
-## 2. Apa yang Dibeli Customer?
+## Peta Kompetisi
+
+![Isochrone Map — 10 Menit Berkendara](output/isochrone_map_pondoklabu.png)
+
+*Zona merah = coverage area Sense Padel Margasatwa. Biru = kompetitor. Heatmap = kepadatan lapangan.*
+
+> [Buka peta interaktif →](output/isochrone_map_pondoklabu.html)
+
+---
+
+## Yang Datanya Ngomong
+
+### Kepadatan Kompetitor
+
+| Radius | Jumlah Lapangan |
+| ------ | --------------- |
+| ≤ 3 km (≈ 10 mnt) | **41 lapangan** |
+| ≤ 5 km (≈ 15 mnt) | **86 lapangan** |
+| ≤ 10 km (≈ 20 mnt) | **140 lapangan** |
+
+Dari sisi kepadatan, zona ini salah satu yang paling kompetitif di Jakarta Selatan.
+Margin hampir pasti akan tertekan saat growth padel mulai melandai — ini bukan spekulasi,
+ini pola yang terjadi di hampir semua olahraga hype cycle sebelumnya.
+
+### Apa yang Customer Tulis di Review
 
 |  | Sense Padel | Rata-rata Kompetitor |
 |--|-------------|----------------------|
@@ -27,11 +37,11 @@ Dengan 41 kompetitor dalam radius 10 menit, margin akan tertekan saat hype padel
 | Service (staf, booking, harga) | 10% | 6% |
 | Social (komunitas, liga, event) | 10% | 10% |
 
-Semua pemain di market ini menjual **experience**. Diferensiasi via fasilitas saja tidak cukup — semua sudah bagus. **Service dan social adalah medan kosong.**
+Hampir semua orang nulis soal fasilitas. Hampir nggak ada yang nulis soal komunitas atau teman.
+Bisa jadi karena memang belum ada — atau bisa jadi karena orang yang punya experience itu
+belum nulis review sama sekali.
 
----
-
-## 3. Community Moat Score
+### Community Moat Score
 
 ![Strategic Dashboard](output/strategic_dashboard_pondoklabu.png)
 
@@ -43,54 +53,84 @@ Semua pemain di market ini menjual **experience**. Diferensiasi via fasilitas sa
 | **Sense Padel Margasatwa** | **35.7 / 100** |
 | Sense Padel Kemang | 19.4 / 100 |
 
-Sense Padel Margasatwa unggul tipis dari rata-rata kompetitor (25.7). Tapi **belum ada satu pun pemain yang punya moat kuat (>60)**. Window masih terbuka.
+Sense Padel unggul tipis dari rata-rata (25.7). Tapi yang menarik: **belum ada satu pun pemain
+yang punya moat kuat di atas 60**. Ini window yang masih terbuka — entah berapa lama.
 
-**Social Maturity: EARLY** — hanya 10% review nyebut komunitas/teman/liga. Ini celah, bukan kelemahan.
+### Gap Niche
 
----
-
-## 4. Niche Terbaik: Beginner Academy
-
-| Niche | Demand Signal | Comp Coverage | Gap Score |
-|-------|--------------|---------------|-----------|
+| Niche | Demand Signal | Comp Coverage | Gap |
+| ----- | ------------ | ------------- | --- |
 | **Beginner Academy** | 2.4% | 0.0% | **2.4** |
-| Liga & Kompetisi | 4.9% | 6.5% | 1.7 |
+| Liga & Kompetisi | 4.9% | 6.5% | — |
 | Ladies Community | 0.0% | 0.0% | 0.0 |
 | Business Networking | 0.0% | 0.0% | 0.0 |
 
-Ada demand untuk pemain pemula tapi **nol kompetitor yang secara eksplisit melayani segmen ini**. Blue ocean kecil di tengah market merah.
+Ada sinyal demand untuk pemula, nol kompetitor yang eksplisit melayani. Tapi sinyal 2.4%
+dari 41 review itu kecil banget — perlu dicek langsung ke lapangan.
 
 ---
 
-## 5. Rekomendasi Strategi
+## Yang Datanya Nggak Bisa Ngomong
 
-**NICHE + COMMUNITY** — Market jenuh. Pilih satu niche, build community di dalamnya.
+Ini yang paling penting buat didiskusikan sebelum ambil keputusan besar:
 
-### Action Items (Prioritas)
+**Data Google Review punya blind spot sistemik:**
 
-- [ ] **Beginner Academy Program** — paket coaching terstruktur untuk pemain baru (4–8 sesi), bukan sekadar sewa lapangan
-- [ ] **Liga Internal Ranking** — sistem ladder/ranking untuk semua member; switching cost emosional tinggi karena orang tidak mau kehilangan ranking mereka
-- [ ] **Program "Bring a Friend"** — member yang bawa teman baru dapat free session; viral loop organik
-- [ ] **WhatsApp Group per Level** — Beginner / Intermediate / Advanced; komunitas terbentuk secara natural
-- [ ] **Monthly Event Bertema** — minimal 1x/bulan: mini tournament, ladies day, atau coaching clinic
+- **Mayoritas customer nggak nulis review.** Dari 142 lapangan, hanya 41 review yang bisa
+  di-scrape dengan detail. Orang yang puas seringkali diam — yang nulis review biasanya yang
+  sangat senang atau yang kecewa. Distribusinya nggak representatif.
 
-### Metrik Keberhasilan (3 Bulan)
+- **Nggak keliatan siapa yang balik.** Review nggak bisa ngukur retention rate — berapa persen
+  customer yang datang bulan lalu masih datang bulan ini. Ini metrik yang jauh lebih penting
+  dari rating.
 
-| Metrik | Target |
-|--------|--------|
-| Member retention rate | > 60% (balik dalam 30 hari) |
-| Social review % | Naik dari 10% → 20%+ |
-| Event attendance | ≥ 20 peserta per event |
-| Community Moat Score | > 60 (dari 35.7 saat ini) |
+- **Nggak keliatan siapa customernya.** Umur, pekerjaan, sudah berapa lama main padel,
+  datang sendiri atau bareng komunitas — semua invisible dari data ini.
 
----
+- **Nggak keliatan pricing pressure.** Siapa yang lagi promo, siapa yang naik harga,
+  bagaimana elastisitas demand di zona ini — data public nggak nyentuh ini sama sekali.
 
-## Insight Utama
-
-> Member yang punya teman di Sense Padel tidak akan pindah — karena mereka bukan cuma pindah lapangan, tapi kehilangan teman dan ranking mereka.
->
-> **Fasilitas bagus membawa orang datang pertama kali. Komunitas membuat mereka tidak pergi.**
+- **Komunitas yang ada belum tentu keliatan di review.** Kalau sebenarnya sudah ada WhatsApp
+  grup aktif, regular players yang loyal, atau mini-tournament informal — itu nggak akan
+  muncul di Google Maps. Moat score 35.7 bisa terlalu rendah, bisa juga terlalu tinggi.
 
 ---
 
-*Analisis berdasarkan data Google Maps (142 courts) dan review scraping (41 reviews, 9 courts). Periode: Mei 2026.*
+## Pertanyaan yang Lebih Berguna dari Kesimpulan
+
+Daripada langsung ke rekomendasi, mungkin lebih worth it nanya dulu:
+
+1. **Siapa regular players sekarang?** Ada nggak segment yang sudah balik konsisten tiap minggu?
+   Kalau ada — mereka ngapain aja selain main? Ada nggak interaksi sosial yang terjadi secara organik?
+
+2. **Kenapa orang baru pertama kali datang?** Referral dari teman, atau nemu sendiri di Maps?
+   Rasionya kira-kira berapa?
+
+3. **Kenapa orang berhenti datang?** Ini yang paling susah ditanya tapi paling valuable.
+
+4. **Quattro Padel moat-nya tinggi (59.1) — mereka ngapain berbeda?**
+   Kalau bisa diobservasi langsung, itu lebih informative dari semua data ini.
+
+5. **Beginner Academy — sudah pernah coba?** Atau ada hambatan operasional yang bikin itu
+   susah dijalanin?
+
+---
+
+## Kalau Dipaksa Milih Satu Arah
+
+Dari semua yang ada, kalau harus pilih satu fokus sebelum punya data yang lebih baik:
+**jadikan regular players yang ada sekarang sebagai basis — bukan akuisisi customer baru.**
+
+Bukan karena ini strategi yang paling menarik, tapi karena:
+
+- Datanya sudah ada (tinggal ngobrol sama mereka)
+- Biayanya paling rendah
+- Dan kalau community moat itu memang jalan yang bener, inilah starting point-nya
+
+Angka-angka di atas bisa jadi titik awal diskusi — bukan peta jalan yang sudah pasti.
+
+---
+
+*Data: Google Maps scraping, 142 courts, 41 reviews dari 9 courts terdekat. Periode: Mei 2026.*
+*Metode: review classification NLP, haversine distance, community moat scoring berbasis dimensi sosial/engagement/liga/niche.*
+*Limitasi: sample size kecil, survivorship bias pada review, tidak ada data operasional, tidak ada customer interview.*
